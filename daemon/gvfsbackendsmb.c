@@ -414,6 +414,8 @@ do_mount (GVfsBackend *backend,
 			_("Internal Error (%s)"), "Failed to allocate smb context");
       return;
     }
+
+  smbc_setOptionProtocols(smb_context, "NT1", NULL);
   smbc_setOptionUserData (smb_context, backend);
 
   debug = g_getenv ("GVFS_SMB_DEBUG");
